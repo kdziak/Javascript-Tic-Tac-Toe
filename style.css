@@ -1,0 +1,27 @@
+.board {
+  margin: 100px auto;
+  width: 600px;
+  display: grid;
+  border: 1px dashed;
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: 200px 200px 200px;
+  
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid;
+  text-align: center;
+  font-size: 50px;
+  
+}
+
+.title {
+  text-align: center;
+}
+
+.players {
+  text-align: center;
+}
