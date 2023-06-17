@@ -45,7 +45,7 @@ function clickedBox(e) {
       if(playerHasWon() !== false){
         title.textContent = `${currentPlayer}'s have won!`
         let winner = playerHasWon()
-        winner.map(box => boxes[box].style.background = 'red')
+        winner.map(box => boxes[box].style.backgroundColor = 'red')
       }
       currentPlayer = currentPlayer == playerOne ? playerTwo : playerOne
   }
@@ -69,7 +69,7 @@ function restartGame() {
   spaces.fill(null)
   boxes.forEach(box => {
     box.innerText = ""
-    
+    box.style.backgroundColor = ''
   })
   
   currentPlayer = playerOne
