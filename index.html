@@ -9,28 +9,29 @@
 </head>
 <body>
 
-  <h1 class="title">Tic-Tac-Toe</h1>
+  <h1 class="title" id="title">Tic-Tac-Toe</h1>
 
   <div class="players">
     <div class="player"> Player 1: <span id="name"></span>, <span id="peice"></span></div>
     <div class="player"> Player 2: Name, Peice</div>
+    <button id="restartButton">Restart</button>
   </div>
   
   <div class="board" id="board">
-    <div class="box" id="0">0</div>
-    <div class="box" id="1">1</div>
-    <div class="box" id="2">2</div>
-    <div class="box" id="3">3</div>
-    <div class="box" id="4">4</div>
-    <div class="box" id="5">5</div>
-    <div class="box" id="6">6</div>
-    <div class="box" id="7">7</div>
-    <div class="box" id="8">8</div>
+    <div class="box" id="0"></div>
+    <div class="box" id="1"></div>
+    <div class="box" id="2"></div>
+    <div class="box" id="3"></div>
+    <div class="box" id="4"></div>
+    <div class="box" id="5"></div>
+    <div class="box" id="6"></div>
+    <div class="box" id="7"></div>
+    <div class="box" id="8"></div>
   </div>
 
   <div class="winning-message" id="winning-message">
     <div data-winning-message-text></div>
-    <button id="restartButton">Restart</button>
+    
   </div>
   
 </body>

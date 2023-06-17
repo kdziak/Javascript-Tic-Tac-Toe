@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: blanchedalmond;
+  background-color: grey;
 }
 
 .board {
@@ -23,10 +23,19 @@ body {
   
 }
 
+.box:hover {
+  background-color: yellow;
+}
+
 .title {
   text-align: center;
 }
 
 .players {
   text-align: center;
+}
+
+
+#restartButton {
+  margin-top: 10px;
 }
