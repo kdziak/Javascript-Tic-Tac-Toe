@@ -1,8 +1,13 @@
+body {
+  margin: 0;
+  background-color: blanchedalmond;
+}
+
 .board {
   margin: 100px auto;
   width: 600px;
   display: grid;
-  border: 1px dashed;
+  border: 1px ;
   grid-template-columns: 200px 200px 200px;
   grid-template-rows: 200px 200px 200px;
   

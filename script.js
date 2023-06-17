@@ -1,4 +1,10 @@
-let turn = 0
+
+const playerOne = "X"
+const playerTwo = "O"
+
+let currentPlayer = playerOne
+let spaces = Array(9).fill(null)
+let boxes = Array.from(document.getElementsByClassName('box'))
 
 const playerFactory = (name, peice) => {
   const sayName = () => console.log(name);
@@ -22,22 +28,22 @@ const gameBoard = (() => {
 const p1name = kian.name;
 document.getElementById('name').innerHTML = p1name;
 
+const startGame = () => {
+  boxes.forEach(box => box.addEventListener('click', clickedBox))
+}
 
-const box = document.querySelectorAll(".box").forEach(item => {
-  item.addEventListener('click', function (e) {
-    turn++
-    item.innerHTML = peicePicker(turn)
-    //e.target.style.background = "blue"
-  })
-})
-  
 
-function peicePicker(turn) {
-  if (turn % 2 == 0) {
-    return "O";
-  } else {
-    return "X";
+function clickedBox(e) {
+  id = e.target.id
+
+  if (!spaces[id]){
+      spaces[id] = currentPlayer
+      e.target.innerText = currentPlayer
+
+      currentPlayer = currentPlayer == playerOne ? playerTwo : playerOne
   }
 }
+
+startGame()
 
 
