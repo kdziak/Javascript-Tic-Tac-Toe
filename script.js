@@ -1,5 +1,12 @@
 const playerOne = "X"
 const playerTwo = "O"
+const playerOneName = ""
+const playerTwoName = ""
+const winnerColor = getComputedStyle(document.body).getPropertyValue('--winner-color')
+
+const openModal = document.querySelector('.open-button');
+const closeModal = document.querySelector('.close-button');
+const modal = document.querySelector('.modal')
 
 const restartButton = document.getElementById('restartButton')
 const title = document.getElementById('title')
@@ -12,18 +19,25 @@ const winningCombos = [
   [0,4,8],[2,4,6]
 ]
 
-const playerFactory = (name, peice) => {
-  const sayName = () => console.log(name);
-  const sayPeice = () => console.log(peice);
-  return {name, peice, sayName, sayPeice};
-};
+openModal.addEventListener('click', () => {
+  modal.showModal();
+})
 
-const kian = playerFactory('kian', 'x');
+closeModal.addEventListener('click', () => {
+  modal.close();
+})
 
+// const p1name = kian.name;
+// document.getElementById('name').innerHTML = p1name;
 
-
-const p1name = kian.name;
-document.getElementById('name').innerHTML = p1name;
+closeModal.addEventListener('click', () => {
+  let playerOneName = document.getElementById("playerOneName").value;
+  let playerTwoName = document.getElementById("playerTwoName").value;
+  document.getElementById('nameOne').innerText = playerOneName
+  document.getElementById('nameTwo').innerText = playerTwoName
+  console.log(playerOneName)
+  console.log(playerTwoName)
+})
 
 const startGame = () => {
   boxes.forEach(box => box.addEventListener('click', clickedBox))
@@ -37,7 +51,8 @@ function clickedBox(e) {
       spaces[id] = currentPlayer
       console.log(spaces)
       e.target.innerText = currentPlayer
-
+      // testing animation
+      e.target.classList.add(currentPlayer)
       if(draw() == true){
         title.textContent = 'Cats Game!'
       }
@@ -45,7 +60,7 @@ function clickedBox(e) {
       if(playerHasWon() !== false){
         title.textContent = `${currentPlayer}'s have won!`
         let winner = playerHasWon()
-        winner.map(box => boxes[box].style.backgroundColor = 'red')
+        winner.map(box => boxes[box].style.backgroundColor = winnerColor)
       }
       currentPlayer = currentPlayer == playerOne ? playerTwo : playerOne
   }
@@ -70,6 +85,8 @@ function restartGame() {
   boxes.forEach(box => {
     box.innerText = ""
     box.style.backgroundColor = ''
+    box.classList.remove('X')
+    box.classList.remove('O')
   })
   
   currentPlayer = playerOne
@@ -87,3 +104,13 @@ function draw(){
 startGame()
 
 
+// const playerFactory = (name, peice) => {
+//   const sayName = () => console.log(name);
+//   const sayPeice = () => console.log(peice);
+//   return {name, peice, sayName, sayPeice};
+// };
+
+// const kian = playerFactory('kian', 'x');
+
+// const p1name = kian.name;
+// document.getElementById('name').innerHTML = p1name;

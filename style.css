@@ -1,41 +1,89 @@
+/* css variables */
+
+:root {
+  --primary-bg-color: rgb(48, 76, 137);
+  --highlight-color: rgb(100, 141, 229);
+  --text-color: rgb(205, 195, 146);
+  --winner-color:rgb(100, 141, 229);
+}
+
+
+
 body {
   margin: 0;
-  background-color: grey;
+  background-color: var(--primary-bg-color);
 }
 
 .board {
-  margin: 100px auto;
+  margin: 50px auto;
   width: 600px;
   display: grid;
-  border: 1px ;
+  border: none;
   grid-template-columns: 200px 200px 200px;
   grid-template-rows: 200px 200px 200px;
-  
+
 }
+
 
 .box {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid;
+  border: 2px solid var(--text-color);
   text-align: center;
-  font-size: 50px;
+  font-size: 100px;
+  color: var(--text-color);
+  cursor: pointer;
   
 }
 
-.box:hover {
-  background-color: yellow;
+.box:nth-child(-n+3) {
+  border-top: none;
 }
+
+.box:nth-last-child(-n+3) {
+  border-bottom: none;
+}
+
+.box:nth-child(3n+1) {
+  border-left: none;
+}
+
+.box:nth-child(3n+3) {
+  border-right: none;
+}
+
+.box:hover {
+  background-color: var(--highlight-color)
+}
+
 
 .title {
   text-align: center;
+  color: var(--text-color);
+  font-family: "Georgia", sans-serif;
 }
 
 .players {
   text-align: center;
+  margin-top: 10px;
+  color: var(--text-color);
+  font-family: "Georgia", sans-serif;
+  font-size: 20px;
 }
 
 
 #restartButton {
   margin-top: 10px;
 }
+
+.open-button {
+  display: flex;
+  margin: auto;
+}
+
+.O:hover,
+.X:hover {
+  cursor: not-allowed;
+}
+
